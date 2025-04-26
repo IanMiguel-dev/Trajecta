@@ -1,47 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard - Agendamentos</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Agendamentos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <span id="user-email"></span>
-    <button onclick="logout()">Sair</button>
-  </nav>
+    <header>
+        <h1>Dashboard de Agendamentos</h1>
+        <div id="user-info"></div>
+        <button id="logoutBtn">Logout</button>
+    </header>
 
-  <div class="card">
-    <h2>Agendamento de Transporte</h2>
-    <form id="form-agendamento">
-      <input type="datetime-local" id="datetime" required>
-      <input type="text" id="embarque" placeholder="Local de Embarque" required>
-      <input type="text" id="desembarque" placeholder="Local de Desembarque" required>
-      <input type="text" id="motorista" placeholder="Motorista" required>
-      <input type="text" id="carro" placeholder="Carro" required>
-      <input type="text" id="paciente" placeholder="Nome do Paciente" required>
-      <input type="text" id="observacoes" placeholder="Observações">
-      <button type="submit">Agendar</button>
-    </form>
+    <main>
+        <section class="form-section">
+            <h2>Novo Agendamento</h2>
+            <form id="agendamentoForm">
+                <input type="datetime-local" id="dataHora" required>
+                <input type="text" id="paciente" placeholder="Nome do Paciente" required>
+                <input type="text" id="embarque" placeholder="Local de Embarque" required>
+                <input type="text" id="desembarque" placeholder="Local de Desembarque" required>
+                <input type="text" id="motorista" placeholder="Nome do Motorista" required>
+                <input type="text" id="carro" placeholder="Carro Utilizado" required>
+                <textarea id="observacoes" placeholder="Observações"></textarea>
+                <button type="submit">Agendar</button>
+            </form>
+        </section>
 
-    <table id="tabela-agendamentos">
-      <thead>
-        <tr>
-          <th>Data e Hora</th>
-          <th>Embarque</th>
-          <th>Desembarque</th>
-          <th>Motorista</th>
-          <th>Carro</th>
-          <th>Paciente</th>
-          <th>Observações</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
+        <section class="agendamentos-section">
+            <h2>Lista de Agendamentos</h2>
+            <input type="text" id="searchInput" placeholder="Buscar por paciente, motorista, embarque...">
+            <div id="agendamentos"></div>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
